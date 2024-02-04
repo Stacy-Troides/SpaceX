@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:tools="http://schemas.android.com/tools">
+    <base-config
+        cleartextTrafficPermitted="true"
+        tools:ignore="InsecureBaseConfiguration">
+        <trust-anchors>
+            <!-- Trust pre-installed CAs -->
+            <certificates src="system" />
+            <!-- Trust ssl proxy CA -->
+<!--            <certificates src="@raw/proxyca" />-->
+<!--            &lt;!&ndash; Trust sber_ca for PSI &ndash;&gt;-->
+<!--            <certificates src="@raw/sber_ca_ext_test" />-->
+<!--            <certificates src="@raw/sber_ca_root_ext_test" />-->
+<!--            &lt;!&ndash; Trust mc_ca for PSI &ndash;&gt;-->
+<!--            <certificates src="@raw/mc_root_ca_test" />-->
+<!--            <certificates src="@raw/mc_sub_root_ca_test" />-->
+        </trust-anchors>
+    </base-config>
+    <domain-config>
+        <domain includeSubdomains="true">api.spacexdata.com</domain>
+        <trust-anchors>
+            <!-- Trust pre-installed CAs -->
+            <certificates src="system" />
+            <!-- Trust ssl proxy CA -->
+            <!--            <certificates src="@raw/proxyca" />-->
+                        <!-- Trust sber_ca for PSI -->
+                        <certificates src="@raw/sberbankrootca" />
+            <!--            <certificates src="@raw/sber_ca_root_ext_test" />-->
+            <!--            &lt;!&ndash; Trust mc_ca for PSI &ndash;&gt;-->
+            <!--            <certificates src="@raw/mc_root_ca_test" />-->
+            <!--            <certificates src="@raw/mc_sub_root_ca_test" />-->
+        </trust-anchors>
+        <domain includeSubdomains="true">spacexdata.com</domain>
+        <domain includeSubdomains="true">sberbank.ru</domain>
+        <domain includeSubdomains="true">sbrf.ru</domain>
+    </domain-config>
+</network-security-config>
